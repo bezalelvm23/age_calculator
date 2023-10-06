@@ -1,0 +1,45 @@
+<section class="main">
+  <section class="container">
+    <form [formGroup]="inputForm" id="input-container">
+      <div class="input">
+        <p class="heading">day</p>
+        <input
+          type="text"
+          placeholder="DD"
+          maxlength="2"
+          formControlName="day"
+          required
+        />
+        <p class="errmsg" *ngIf="!validInputs.day">Must be a valid day</p>
+      </div>
+      <div class="input">
+        <p class="heading">month</p>
+        <input
+          type="text"
+          placeholder="MM"
+          maxlength="2"
+          formControlName="month"
+          required
+        />
+        <p class="errmsg" *ngIf="!validInputs.month">Must be a valid month</p>
+      </div>
+      <div class="input">
+        <p class="heading">year</p>
+        <input
+          type="text"
+          placeholder="YYYY"
+          maxlength="4"
+          formControlName="year"
+          required
+        />
+        <p class="errmsg" *ngIf="!validInputs.year">Must be in the past</p>
+      </div>
+    </form>
+    <section id="result-container">
+      <p>{{ out.yearDiff }}<span>years</span></p>
+      <p>{{ out.monthDiff }}<span>months</span></p>
+      <p>{{ out.dayDiff }}<span>days</span></p>
+    </section>
+    <button type="submit" class="submitbtn" (click)="submitForm()">✓</button>
+  </section>
+</section>
